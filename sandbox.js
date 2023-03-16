@@ -35,8 +35,9 @@ const currentTime = () =>
 }
 currentTime();
 
-let array = [];
-const listMaker = () =>{
+let array = []; let val; let  j = 1;
+const listMaker = () =>
+{
   let li = document.createElement("li");
   let inputValue = document.getElementById("input").value;
   let text = document.createTextNode(inputValue);
@@ -49,16 +50,19 @@ const listMaker = () =>{
 
   else
   {
-    
-    localStorage.setItem("To-do list",JSON.stringify(li));
+    val = inputValue;
     document.getElementById("myUL").appendChild(li);
+    localStorage.setItem("tasks" + j,JSON.stringify(val));
+    j++;
   }
 
   document.getElementById('input').value = '';
 }
 
-const remover = () =>{
+const remover = () =>
+{
   document.getElementById("myUL").innerText = "";
+  localStorage.clear();
 }
 
 let list1 = document.querySelector('ul');
@@ -66,11 +70,33 @@ list1.addEventListener('click',function(rm)
 {
   if (rm.target.tagName == 'LI')
   {
+    rm.target.innerText = null;
     rm.target.remove();
   }
-  
+
 });
 
+if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+  if (localStorage.length != 0)
+  {
+
+    for (let i = 0; i < localStorage.length; i++)
+    {
+      array[i] = localStorage.getItem("tasks"+ j)
+      j++;
+
+      if (array[i] != null)
+      {
+        let li = document.createElement("li");
+        let inputValue = array[i];
+        inputValue = inputValue.replace(/["]/g, '');
+        let text = document.createTextNode(inputValue);
+        li.appendChild(text);
+        document.getElementById("myUL").appendChild(li);
+      }
+    }
+  }
+} 
 
 
 
