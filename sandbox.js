@@ -20,7 +20,9 @@ const listMaker = () =>{
         
     }
 
-    let listRemover = document.querySelector('ul');
+}
+
+let listRemover = document.querySelector('ul');
     listRemover.addEventListener('click', function(rm){
         if (rm.target.tagName == 'LI')
         {
@@ -31,8 +33,6 @@ const listMaker = () =>{
 
         }
     })
-
-}
 
 const removeAll = () =>{
     document.getElementById("myUL").innerText = "";
