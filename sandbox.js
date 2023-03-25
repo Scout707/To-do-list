@@ -1,9 +1,14 @@
-let counter = 0;let array = [];
+let counter = 0, array = [];
 let taskList = [];
+
+if(counter >= localStorage.getItem('size'))
+    {
+        localStorage.setItem('size', JSON.stringify(counter));
+    }
+
 const listMaker = () =>{
     let li = document.createElement("li");
     let inputVal = document.getElementById("text").value;
-    taskList.push(inputVal);
     let txt = document.createTextNode(inputVal);
     li.appendChild(txt);
     
@@ -12,13 +17,18 @@ const listMaker = () =>{
         alert("Please enter something!");
     }
     else{
-        
+        taskList.push(inputVal);
         localStorage.setItem('Task' + counter, JSON.stringify(inputVal));
         ++counter;
         document.getElementById('myUL').appendChild(li);
         document.getElementById("text").value = '';
-        
+
+        if(counter >= localStorage.getItem('size'))
+        {
+            localStorage.setItem('size', JSON.stringify(counter));
+        }
     }
+
 
 }
 
@@ -26,38 +36,46 @@ let listRemover = document.querySelector('ul');
     listRemover.addEventListener('click', function(rm){
         if (rm.target.tagName == 'LI')
         {
-            localStorage.removeItem("Task" + taskList.indexOf(rm.target.innerText));
-            rm.target.innerText = "";
-        
+            counter = taskList.indexOf(rm.target.innerText);
+            localStorage.removeItem("Task" + counter)
+            rm.target.innerText = '';
             rm.target.remove;
-
         }
     })
 
-const removeAll = () =>{
+const removeAll = () =>
+{
     document.getElementById("myUL").innerText = "";
     localStorage.clear();
+
 }
-if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
-    if (localStorage.length != 0)
-    {
-  
-      for (let i = 0; i < localStorage.length; i++)
-      {
-        array[i] = localStorage.getItem("Task"+ counter)
-        counter++;
-  
-        if (array[i] != null)
+
+
+if (document.getElementById('myUL').innerText == '')
+{
+        while(counter != localStorage.getItem('size'))
         {
-          let li = document.createElement("li");
-          let inputValue = array[i];
-          inputValue = inputValue.replace(/["]/g, '');
-          let text = document.createTextNode(inputValue);
-          li.appendChild(text);
-          document.getElementById("myUL").appendChild(li);
+            if (localStorage.getItem('Task' + counter) != null)
+            {
+                let li = document.createElement("li");
+                let inputVal = localStorage.getItem('Task' + counter);
+                inputVal = inputVal.replace(/["]/g, '');
+                taskList.push(inputVal);
+                console.log(taskList);
+                let txt = document.createTextNode(inputVal);
+                li.appendChild(txt);
+                document.getElementById('myUL').appendChild(li);
+                counter++;
+            }
+            else
+            {
+                counter++;
+            }
+
         }
-      }
-    }
-  } 
-  
+}
+
+
+
+
   
