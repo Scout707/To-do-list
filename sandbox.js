@@ -48,6 +48,7 @@ const removeAll = () =>
     document.getElementById("myUL").innerText = "";
     localStorage.clear();
     localStorage.setItem('size', JSON.stringify(0));
+    counter = 0;
 }
 
 
