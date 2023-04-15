@@ -36,7 +36,10 @@ let listRemover = document.querySelector('ul');
         {
             inputVal = rm.target.innerText;
             localStorage.removeItem(inputVal);
-            rm.target.innerText = '';
+
+            let element = rm.target;
+            element.remove();
+            
             let subtractor = sessionStorage.getItem('size') - 1;
             sessionStorage.setItem('size', subtractor);
         }
