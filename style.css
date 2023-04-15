@@ -81,7 +81,7 @@ img{
     img{
         display: block;
         position: absolute;
-        height: fit-content;
+        height: 100%;
         width: 100%;
     }
     header{
