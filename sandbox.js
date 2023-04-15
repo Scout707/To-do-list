@@ -37,7 +37,8 @@ let listRemover = document.querySelector('ul');
             inputVal = rm.target.innerText;
             localStorage.removeItem(inputVal);
             rm.target.innerText = '';
-            size--;
+            let subtractor = sessionStorage.getItem('size') - 1;
+            sessionStorage.setItem('size', subtractor);
         }
     });
 
