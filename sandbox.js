@@ -5,7 +5,7 @@ if(counter >= sessionStorage.getItem('size'))
         sessionStorage.setItem('size', JSON.stringify(counter));
     };
 
-   
+ 
 const listMaker = () =>
 {
     let li = document.createElement("li");
@@ -30,6 +30,7 @@ const listMaker = () =>
     }
 }
 
+//To remove single elements from To-do list
 let listRemover = document.querySelector('ul');
     listRemover.addEventListener('click', function(rm){
         if (rm.target.tagName == 'LI')
@@ -37,6 +38,7 @@ let listRemover = document.querySelector('ul');
             inputVal = rm.target.innerText;
             localStorage.removeItem(inputVal);
 
+            //Removes Element completely without leaving any padding behind
             let element = rm.target;
             element.remove();
             
@@ -54,9 +56,10 @@ const removeAll = () =>
     counter = 0;
 }
 
-    
+// Code to bring To-do list back after page refresh 
 let count = 0;
 keys = Object.keys(localStorage);
+
 if (document.getElementById('myUL').innerText == '')
 {
         while(count != sessionStorage.getItem('size'))
@@ -67,9 +70,11 @@ if (document.getElementById('myUL').innerText == '')
             {
                 let li = document.createElement("li");
                 inputVal = localStorage.getItem(inputVal);
+
                 inputVal = inputVal.replace(/["]/g, '');
                 let txt = document.createTextNode(inputVal);
                 li.appendChild(txt);
+
                 document.getElementById('myUL').appendChild(li);
                 count++;
             }
@@ -80,5 +85,3 @@ if (document.getElementById('myUL').innerText == '')
 
         }
 }
-
-
