@@ -119,7 +119,7 @@ li:hover{
     }
     .button{
         position: relative;
-        left: 85px;
+        left: 83px;
         border-radius: 0px;
         color: black;
         
@@ -136,13 +136,12 @@ li:hover{
     }
     
     .rmAll{
-        border: black;
-        border-style: solid;
-        border-width: 2px;
+        
+        
         margin-top: 20px;
         position: relative;
         top: -30px;
-        left: -86px;
+        left: -94px;
         color: black;
         border-radius: 0px;
     }
