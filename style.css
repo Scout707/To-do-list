@@ -183,7 +183,7 @@ li:hover{
     }
     .button{
         position: relative;
-        left: 85px;
+        left: 84px;
         border-radius: 0px;
         color: black;
         
@@ -206,7 +206,7 @@ li:hover{
         margin-top: 20px;
         position: relative;
         top: -30px;
-        left: -86px;
+        left: -90px;
         color: black;
         border-radius: 0px;
     }
