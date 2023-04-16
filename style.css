@@ -86,6 +86,70 @@ li:hover{
 
 
 
+@media screen and (max-width: 430px) {
+    
+    img{
+        transform: rotate(360deg);
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+    
+    
+    h1{
+        padding: 6px;
+        display: inline-block;
+        border-color: black;
+        border: solid;
+        border-width: 6px;
+        border-radius: 2px;
+        
+    }
+    label{
+        position: relative;
+        left: 140px;
+    }
+    .text{
+        position: relative;
+        left: 110px;
+        margin-top: 10px;
+        width: 200px;
+    }
+    .button{
+        position: relative;
+        left: 110px;
+        border-radius: 0px;
+        color: black;
+        
+    }
+    li{
+        font-size: 14px;
+        font-family: monospace;
+        margin: 7px;
+        width: 190px;
+        left: 63px;
+        border-radius: 3px;
+        padding: 5px;
+        
+    }
+    
+    .rmAll{
+        border: black;
+        border-style: solid;
+        border-width: 2px;
+        margin-top: 20px;
+        position: relative;
+        top: -30px;
+        left: -63px;
+        color: black;
+        border-radius: 0px;
+    }
+    .rmAll:hover{
+        text-decoration: underline;
+    }
+    
+}
 
 @media screen and (max-width: 400px) {
     
@@ -152,70 +216,3 @@ li:hover{
     
 }
 
-
-
-
-@media screen and (max-width: 430px) {
-    
-    img{
-        transform: rotate(360deg);
-        display: block;
-        position: absolute;
-        height: 100%;
-        width: 100%;
-    }
-    
-    
-    h1{
-        padding: 6px;
-        display: inline-block;
-        border-color: black;
-        border: solid;
-        border-width: 6px;
-        border-radius: 2px;
-        
-    }
-    label{
-        position: relative;
-        left: 140px;
-    }
-    .text{
-        position: relative;
-        left: 110px;
-        margin-top: 10px;
-        width: 200px;
-    }
-    .button{
-        position: relative;
-        left: 110px;
-        border-radius: 0px;
-        color: black;
-        
-    }
-    li{
-        font-size: 14px;
-        font-family: monospace;
-        margin: 7px;
-        width: 190px;
-        left: 63px;
-        border-radius: 3px;
-        padding: 5px;
-        
-    }
-    
-    .rmAll{
-        border: black;
-        border-style: solid;
-        border-width: 2px;
-        margin-top: 20px;
-        position: relative;
-        top: -30px;
-        left: -63px;
-        color: black;
-        border-radius: 0px;
-    }
-    .rmAll:hover{
-        text-decoration: underline;
-    }
-    
-}
